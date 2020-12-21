@@ -1,0 +1,22 @@
+@import "../../../variables.scss";
+
+.album-add {
+  display: inline-block;
+  position: relative;
+  height: $album-height;
+  margin: 1rem;
+}
+.plus {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  cursor: pointer;
+  transition-property: color;
+  transition-duration: 300ms;
+}
+.plus:hover {
+  color: white;
+  transition-property: color;
+  transition-duration: 300ms;
+}

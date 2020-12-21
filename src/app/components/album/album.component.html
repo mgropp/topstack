@@ -1,0 +1,22 @@
+<div class="album">
+  <div class="cover image" [style.background-image]="coverUrl ? 'url(\'' + coverUrl + '\')' : 'none'">
+    <div *ngIf="!coverUrl" class="spinner">
+      <i class="fa fa-compact-disc fa-spin" style="font-size: 5rem"></i>
+    </div>
+  </div>
+  <div class="case"></div>
+  <div class="cover">
+    <div class="buttons">
+      <div class="play-button" (click)="playClicked()" title="Play">
+        <i class="far fa-play-circle" style="font-size: 5rem"></i>
+      </div>
+      <div class="remove-button" (click)="removeClicked()" title="Remove">
+        <i class="fas fa-times" style="font-size: 1.5rem"></i>
+      </div>
+      <div class="info">
+        <div *ngIf="artists" class="artists">{{artists}}</div>
+        <div *ngIf="title" class="title">{{title}}</div>
+      </div>
+    </div>
+  </div>
+</div>
