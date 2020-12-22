@@ -1,6 +1,5 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import SpotifyWebApi from 'spotify-web-api-js';
 import { ContentService } from 'src/app/services/content/content.service';
 import { SpotifyService } from '../../services/spotify/spotify.service';
 
@@ -51,6 +50,14 @@ export class AlbumComponent implements OnInit {
   }
 
   public removeClicked(): void {
-    //this.albumService.removeContent(this.albumId);
+    var name = '';
+    if (this.artists) {
+      name += this.artists + ': ';
+    }
+    name += this.title;
+
+    if (confirm(`Are you sure you want to remove ${name}?`)) {
+      this.contentService.removeContent(this.contentUri);
+    }
   }
 }

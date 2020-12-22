@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Generic, SalteAuth } from '@salte-auth/salte-auth';
 import { Redirect } from '@salte-auth/redirect';
 import SpotifyWebApi from 'spotify-web-api-js';
+import appConfig from '../../../assets/config.json';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class SpotifyService {
           url: 'https://accounts.spotify.com',
           responseType: 'token',
           scope: 'user-library-read streaming',
-          clientID: '87d138c818ef487d84fa1ea91667d21a' // TODO
+          clientID: appConfig.spotify.clientId
         })
       ],
       handlers: [

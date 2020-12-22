@@ -14,9 +14,22 @@ export class ContentAddComponent implements OnInit {
   }
 
   public addContent() {
-    const contentUri = prompt('Enter a Spotify content URI (e.g. spotify:album:0aOupcoxV0EXjLfoHXqb2o):');
-    if (contentUri) {
-      this.contentService.addContent(contentUri);
+    try {
+      const content = prompt('Enter a Spotify content URI (e.g. spotify:album:0aOupcoxV0EXjLfoHXqb2o) or URL (e.g. https://open.spotify.com/playlist/7yav381wuvVrg1hhEzUhYe):');
+      if (content) {
+        if (content.startsWith('spotify:')) {
+          this.contentService.addContent(content);
+        } else if (
+          content.startsWith('https://open.spotify.com/') ||
+          content.startsWith('http://open.spotify.com/')
+        ) {
+          this.contentService.addContentFromUrl(content);
+        }
+      }
+    }
+    catch (e) {
+      console.error(e);
+      alert(e);
     }
   }
 }
