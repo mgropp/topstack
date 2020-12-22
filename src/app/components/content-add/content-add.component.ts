@@ -24,6 +24,8 @@ export class ContentAddComponent implements OnInit {
           content.startsWith('http://open.spotify.com/')
         ) {
           this.contentService.addContentFromUrl(content);
+        } else {
+          throw new Error(`"${content}" does not appear to be a valid Spotify URI or URL.`)
         }
       }
     }

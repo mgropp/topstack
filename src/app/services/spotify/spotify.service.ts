@@ -43,7 +43,7 @@ export class SpotifyService {
           },
           url: 'https://accounts.spotify.com',
           responseType: 'token',
-          scope: 'user-library-read streaming',
+          scope: 'streaming',
           clientID: appConfig.spotify.clientId
         })
       ],
